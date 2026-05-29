@@ -1,27 +1,36 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
-const [formData, setFormData] = useState({
-  fullName: "",
-  email: "",
-  password: "",
-});
-
-function handleChange(event){
-  const {name, value} = event.target;
-
-  setFormData({
-    ...formData,
-    [name]: value,
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    password: "",
   });
-}
 
-function handleSubmit(event){
-  event.preventDefault();
+  function handleChange(event) {
+    const { name, value } = event.target;
 
-  console.log(formData)
-}
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/api/auth/signup",
+        formData,
+      );
+      console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   return (
     <main className="auth-page">
@@ -32,25 +41,40 @@ function handleSubmit(event){
         <form className="auth-form" onSubmit={handleSubmit}>
           <div className="form-group">
             <label>Full Name</label>
-            <input type="text" placeholder="Enter your full name" name="fullName" value={formData.fullName}
-            onChange={handleChange}/>
+            <input
+              type="text"
+              placeholder="Enter your full name"
+              name="fullName"
+              value={formData.fullName}
+              onChange={handleChange}
+            />
           </div>
-          
+
           <div className="form-group">
             <label>Email</label>
-            <input type="email" placeholder="Enter your email" name="email" value={formData.email}
-            onChange={handleChange}/>
+            <input
+              type="email"
+              placeholder="Enter your email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+            />
           </div>
 
           <div className="form-group">
             <label>Password</label>
-            <input type="password" placeholder="Enter your password" name="password" value={formData.password}
-            onChange={handleChange}/>
+            <input
+              type="password"
+              placeholder="Enter your password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+            />
           </div>
 
           <button type="submit">Create Account</button>
         </form>
-        
+
         <p className="auth-switch">
           Already have an account? <Link to="/login">Login</Link>
         </p>
