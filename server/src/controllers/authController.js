@@ -97,4 +97,40 @@ async function getProfile(req, res) {
   }
 }
 
-module.exports = { signupUser, loginUser, getProfile };
+async function updateProfile(req, res) {
+  try {
+    const {
+      college,
+      branch,
+      year,
+      targetCompany,
+      leetcodeSolved,
+      currentGoal,
+    } = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(
+      req.user.id,
+      {
+        college,
+        branch,
+        year,
+        targetCompany,
+        leetcodeSolved,
+        currentGoal,
+      },
+      { new: true },
+    ).select("-password -__v");
+
+    res.status(200).json({
+      message: "Profile updated successfully",
+      user: updatedUser,
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "Profile update failed",
+      error: error.message,
+    });
+  }
+}
+
+module.exports = { signupUser, loginUser, getProfile, updateProfile };

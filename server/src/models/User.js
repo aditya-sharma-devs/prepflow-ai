@@ -16,6 +16,36 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+
+  college: {
+    type: String,
+    default: "",
+  },
+
+  branch: {
+    type: String,
+    default: "",
+  },
+
+  year: {
+    type: String,
+    default: "",
+  },
+
+  targetCompany: {
+    type: String,
+    default: "",
+  },
+
+  leetcodeSolved: {
+    type: Number,
+    default: 0,
+  },
+
+  currentGoal: {
+    type: String,
+    default: "",
+  },
 });
 
 const User = mongoose.model("User", userSchema);
