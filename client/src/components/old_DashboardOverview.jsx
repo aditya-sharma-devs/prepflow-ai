@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import DashboardSidebar from "./DashboardSidebar";
+import { API_URL } from "../config";
 
 function DashboardOverview({ user, handleLogout }) {
   const [topic, setTopic] = useState("");
@@ -14,7 +15,7 @@ function DashboardOverview({ user, handleLogout }) {
       const token = localStorage.getItem("token");
 
       const response = await axios.post(
-        "http://localhost:5000/api/roadmaps/generate",
+        `${API_URL}/api/roadmaps/generate`,
         { topic },
         {
           headers: {

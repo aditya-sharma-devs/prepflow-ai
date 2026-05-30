@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { API_URL } from "../../config";
 
 function RoadmapsPage() {
   const [topic, setTopic] = useState("");
@@ -10,7 +11,7 @@ function RoadmapsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      const response = await axios.get("http://localhost:5000/api/roadmaps", {
+      const response = await axios.get(`${API_URL}/api/roadmaps`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +30,7 @@ function RoadmapsPage() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        "http://localhost:5000/api/roadmaps/generate",
+        `${API_URL}/api/roadmaps/generate`,
         { topic },
         {
           headers: {
@@ -58,7 +59,7 @@ function RoadmapsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`http://localhost:5000/api/roadmaps/${id}`, {
+      await axios.delete(`${API_URL}/api/roadmaps/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
