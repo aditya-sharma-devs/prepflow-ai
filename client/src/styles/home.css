@@ -1,0 +1,77 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 2rem;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: 55rem;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 8vw, 5rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-buttons button {
+  padding: 0.9rem 1.6rem;
+  border: none;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.features-section {
+  padding: 5rem 1.5rem;
+}
+
+.features-section h2 {
+  text-align: center;
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 3rem;
+}
+
+.features-grid {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.feature-card h3 {
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.feature-card p{
+  color: #4b5563;
+  line-height: 1.6;
+}

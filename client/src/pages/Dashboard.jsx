@@ -60,7 +60,7 @@ function Dashboard() {
   async function handleProfileSubmit(event) {
     event.preventDefault();
 
-    try{
+    try {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
@@ -70,14 +70,14 @@ function Dashboard() {
           headers: {
             Authorization: `Bearer ${token}`,
           },
-        }
+        },
       );
 
-      setUser(response.data.user)
-      alert("Profile updated successfully")
-    }catch(error){
-      console.log(error)
-      alert(error.response?.data?.message || "Profile update failed")
+      setUser(response.data.user);
+      alert("Profile updated successfully");
+    } catch (error) {
+      console.log(error);
+      alert(error.response?.data?.message || "Profile update failed");
     }
   }
 
@@ -87,35 +87,78 @@ function Dashboard() {
     navigate("/login");
   }
   return (
-    <main>
-      <h1>Dashboard</h1>
-
-      {user ? (
-        <div>
-          <h2>Welcome, {user.fullName}</h2>
-          <p>Email: {user.email}</p>
-
-          <form onSubmit={handleProfileSubmit}>
-            <input type="text" name="college" placeholder="College" value={profileData.college} onChange={handleProfileChange} />
-            
-            <input type="text" name="branch" placeholder="Branch" value={profileData.branch} onChange={handleProfileChange} />
-            
-            <input type="text" name="year" placeholder="Year" value={profileData.year} onChange={handleProfileChange} />
-            
-            <input type="text" name="targetCompany" placeholder="Target Company" value={profileData.targetCompany} onChange={handleProfileChange} />
-            
-            <input type="text" name="leetcodeSolved" placeholder="Leetcode Problems Solved" value={profileData.leetcodeSolved} onChange={handleProfileChange} />
-            
-            <textarea name="currentGoal" placeholder="Current Goal" value={profileData.currentGoal} onChange={handleProfileChange} />
-
-            <button type="submit">Save Profile</button>
-          </form>
+    <main className="dashboard-page">
+      <section className="dashboard-card">
+        <div className="dashboard-header">
+          <div>
+            <h1>Dashboard</h1>
+            {user && <p>Welcome, {user.fullName}</p>}
+          </div>
+          <button onClick={handleLogout} className="logout-btn">
+            Logout
+          </button>
         </div>
-      ) : (
-        <p>Loading user...</p>
-      )}
 
-      <button onClick={handleLogout}>Logout</button>
+        {user ? (
+          <div className="profile-section">
+            <h2>Your Profile</h2>
+            <p>Email: {user.email}</p>
+
+            <form className="profile-form" onSubmit={handleProfileSubmit}>
+              <input
+                type="text"
+                name="college"
+                placeholder="College"
+                value={profileData.college}
+                onChange={handleProfileChange}
+              />
+
+              <input
+                type="text"
+                name="branch"
+                placeholder="Branch"
+                value={profileData.branch}
+                onChange={handleProfileChange}
+              />
+
+              <input
+                type="text"
+                name="year"
+                placeholder="Year"
+                value={profileData.year}
+                onChange={handleProfileChange}
+              />
+
+              <input
+                type="text"
+                name="targetCompany"
+                placeholder="Target Company"
+                value={profileData.targetCompany}
+                onChange={handleProfileChange}
+              />
+
+              <input
+                type="number"
+                name="leetcodeSolved"
+                placeholder="Leetcode Problems Solved"
+                value={profileData.leetcodeSolved}
+                onChange={handleProfileChange}
+              />
+
+              <textarea
+                name="currentGoal"
+                placeholder="Current Goal"
+                value={profileData.currentGoal}
+                onChange={handleProfileChange}
+              />
+
+              <button type="submit">Save Profile</button>
+            </form>
+          </div>
+        ) : (
+          <p>Loading user...</p>
+        )}
+      </section>
     </main>
   );
 }

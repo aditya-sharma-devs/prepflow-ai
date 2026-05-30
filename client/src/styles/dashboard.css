@@ -1,0 +1,107 @@
+.dashboard-page{
+  min-height: 100vh;
+  padding: 6rem 1.5rem 2rem;
+  background-color: #f8fafc;
+}
+
+.dashboard-card{
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  background-color: white;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: 1rem;
+}
+
+.dashboard-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.dashboard-header h1{
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.4rem;
+}
+
+.dashboard-header p{
+  color: #4b5563;
+}
+
+.logout-btn{
+  padding: 0.8rem 1.3rem;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #111827;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.profile-section h2{
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-bottom: 0.5rem;
+}
+
+.profile-section p{
+  color: #4b5563;
+  margin-bottom: 1.5rem;
+}
+
+.profile-form{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  justify-items: center;
+}
+
+.profile-form input,
+.profile-form text-area{
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.profile-form textarea{
+  min-height: 5rem;
+  max-height: 10rem;
+  resize: vertical;
+  grid-column: 1 / -1;
+}
+
+.profile-form button{
+  width: fit-content;
+  padding: 0.9rem 0.9rem;
+  border: none;
+  border-radius: 0.6rem;
+  color: white;
+  background-color: #111827;
+  font-size: 1rem;
+  cursor: pointer;
+  grid-column: 1 / -1;
+}
+
+.profile-form button:hover,
+.logout-btn:hover{
+  background-color: #374151;
+}
+
+@media (max-width: 480px){
+  .dashboard-page{
+    padding: 5rem 1rem 1.5rem;
+  }
+
+  .profile-form{
+    grid-template-columns: 1fr;
+  }
+
+  .dashboard-card{
+    padding: 1.2rem;
+  }
+}
