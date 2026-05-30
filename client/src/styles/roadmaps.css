@@ -1,0 +1,109 @@
+.roadmap-generator,
+.roadmap-result{
+  margin-top: 2rem;
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.roadmap-form{
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.roadmap-form input{
+  flex: 1;
+  min-width: 14rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.6rem;
+  font-size: 1rem;
+}
+
+.roadmap-form button{
+  padding: 0.85rem 1.3rem;
+  border: none;
+  border-radius: 0.6rem;
+  background-color: #111827;
+  color: white;
+  cursor: pointer;
+}
+
+.lesson-list{
+  display: grid;
+  gap: 1rem;
+  margin-top: 1rem;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.lesson-card{
+  background-color: white;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  height: fit-content;
+}
+
+.suggested-section,
+.placeholder-page {
+  margin-top: 2rem;
+}
+
+.suggested-section h2 {
+  margin-bottom: 1rem;
+}
+
+.placeholder-page {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.placeholder-page p {
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+.roadmap-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+
+.roadmap-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.roadmap-actions button {
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.expanded-roadmap {
+  margin-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1rem;
+}
+
+.expanded-lesson {
+  padding: 0.75rem;
+  margin-bottom: 0.75rem;
+  background-color: #f8fafc;
+  border-radius: 0.6rem;
+}
+
+.expanded-lesson h4 {
+  margin-bottom: 0.3rem;
+}
+
+
+@media (max-width: 768px){
+    .lesson-list{
+        grid-template-columns: 1fr;
+    }
+}

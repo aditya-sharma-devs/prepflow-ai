@@ -2,7 +2,15 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ProfileSetup from "../components/ProfileSetup";
-import DashboardOverview from "../components/DashboardOverview";
+
+import DashboardLayout from "../components/dashboard/DashboardLayout";
+import { Routes, Route } from "react-router-dom";
+import OverviewPage from "../components/dashboard/OverviewPage";
+import RoadmapsPage from "../components/dashboard/RoadmapsPage";
+import ProgressPage from "../components/dashboard/ProgressPage";
+import NotesPage from "../components/dashboard/NotesPage";
+import ProfilePage from "../components/dashboard/ProfilePage";
+import SettingsPage from "../components/dashboard/SettingsPage";
 
 function Dashboard() {
   const navigate = useNavigate();
@@ -101,14 +109,31 @@ function Dashboard() {
   return (
     <main className="dashboard-page">
       {user.isProfileComplete ? (
-        <DashboardOverview user = {user} handleLogout = {handleLogout} />
-      ):(
+        <Routes>
+          <Route path="/" element={<DashboardLayout />}>
+            <Route index element={<OverviewPage user={user} />} />
+
+            <Route path="roadmaps" element={<RoadmapsPage />} />
+
+            <Route path="progress" element={<ProgressPage />} />
+
+            <Route path="notes" element={<NotesPage />} />
+
+            <Route path="profile" element={<ProfilePage />} />
+
+            <Route
+              path="settings"
+              element={<SettingsPage handleLogout={handleLogout} />}
+            />
+          </Route>
+        </Routes>
+      ) : (
         <ProfileSetup
-        user={user}
-        profileData={profileData}
-        handleProfileChange={handleProfileChange}
-        handleProfileSubmit={handleProfileSubmit}
-        handleLogout={handleLogout}
+          user={user}
+          profileData={profileData}
+          handleProfileChange={handleProfileChange}
+          handleProfileSubmit={handleProfileSubmit}
+          handleLogout={handleLogout}
         />
       )}
     </main>

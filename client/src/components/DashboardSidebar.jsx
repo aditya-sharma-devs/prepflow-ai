@@ -1,15 +1,17 @@
+import { Link } from "react-router-dom";
+
 function DashboardSidebar() {
   return (
     <aside className="dashboard-sidebar">
-      <h2>Prepflow</h2>
+      <h2>PrepFlow</h2>
 
       <nav className="sidebar-links">
-        <a href="#">Overview</a>
-        <a href="#">My Roadmap</a>
-        <a href="#">Progress</a>
-        <a href="#">Notes</a>
-        <a href="#">Profile</a>
-        <a href="#">Settings</a>
+        <Link to="/dashboard">Overview</Link>
+        <Link to="/dashboard/roadmaps">My Roadmap</Link>
+        <Link to="/dashboard/progress">Progress</Link>
+        <Link to="/dashboard/notes">Notes</Link>
+        <Link to="/dashboard/profile">Profile</Link>
+        <Link to="/dashboard/settings">Settings</Link>
       </nav>
     </aside>
   );
