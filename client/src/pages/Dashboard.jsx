@@ -1,10 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import ProfileSetup from "../components/ProfileSetup";
+import DashboardOverview from "../components/DashboardOverview";
 
 function Dashboard() {
   const navigate = useNavigate();
   const [user, setUser] = useState(null);
+
   const [profileData, setProfileData] = useState({
     college: "",
     branch: "",
@@ -86,79 +89,28 @@ function Dashboard() {
 
     navigate("/login");
   }
+
+  if (!user) {
+    return (
+      <main className="dashboard-page">
+        <p>Loading user...</p>
+      </main>
+    );
+  }
+
   return (
     <main className="dashboard-page">
-      <section className="dashboard-card">
-        <div className="dashboard-header">
-          <div>
-            <h1>Dashboard</h1>
-            {user && <p>Welcome, {user.fullName}</p>}
-          </div>
-          <button onClick={handleLogout} className="logout-btn">
-            Logout
-          </button>
-        </div>
-
-        {user ? (
-          <div className="profile-section">
-            <h2>Your Profile</h2>
-            <p>Email: {user.email}</p>
-
-            <form className="profile-form" onSubmit={handleProfileSubmit}>
-              <input
-                type="text"
-                name="college"
-                placeholder="College"
-                value={profileData.college}
-                onChange={handleProfileChange}
-              />
-
-              <input
-                type="text"
-                name="branch"
-                placeholder="Branch"
-                value={profileData.branch}
-                onChange={handleProfileChange}
-              />
-
-              <input
-                type="text"
-                name="year"
-                placeholder="Year"
-                value={profileData.year}
-                onChange={handleProfileChange}
-              />
-
-              <input
-                type="text"
-                name="targetCompany"
-                placeholder="Target Company"
-                value={profileData.targetCompany}
-                onChange={handleProfileChange}
-              />
-
-              <input
-                type="number"
-                name="leetcodeSolved"
-                placeholder="Leetcode Problems Solved"
-                value={profileData.leetcodeSolved}
-                onChange={handleProfileChange}
-              />
-
-              <textarea
-                name="currentGoal"
-                placeholder="Current Goal"
-                value={profileData.currentGoal}
-                onChange={handleProfileChange}
-              />
-
-              <button type="submit">Save Profile</button>
-            </form>
-          </div>
-        ) : (
-          <p>Loading user...</p>
-        )}
-      </section>
+      {user.isProfileComplete ? (
+        <DashboardOverview user = {user} handleLogout = {handleLogout} />
+      ):(
+        <ProfileSetup
+        user={user}
+        profileData={profileData}
+        handleProfileChange={handleProfileChange}
+        handleProfileSubmit={handleProfileSubmit}
+        handleLogout={handleLogout}
+        />
+      )}
     </main>
   );
 }

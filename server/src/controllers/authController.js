@@ -117,6 +117,7 @@ async function updateProfile(req, res) {
         targetCompany,
         leetcodeSolved,
         currentGoal,
+        isProfileComplete: true,
       },
       { new: true },
     ).select("-password -__v");
