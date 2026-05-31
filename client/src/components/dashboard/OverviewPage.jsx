@@ -3,50 +3,61 @@ function OverviewPage({ user }) {
     <>
       <div className="dashboard-header">
         <div>
-          <h1>Dashboard</h1>
-          <p>Welcome back, {user.fullName}</p>
+          <span className="dashboard-badge">Overview</span>
+          <h1>Welcome back, {user.fullName}</h1>
+          <p>Continue your placement preparation from where you left.</p>
         </div>
       </div>
 
       <div className="overview-grid">
         <div className="overview-card">
-          <h3>Target Company</h3>
-          <p>{user.targetCompany || "Not Selected"}</p>
+          <span>Target</span>
+          <h3>{user.targetCompany || "Not Selected"}</h3>
+          <p>Company focus</p>
         </div>
 
         <div className="overview-card">
-          <h3>Leetcode Solved</h3>
-          <p>{user.leetcodeSolved || 0}</p>
+          <span>Practice</span>
+          <h3>{user.leetcodeSolved || 0}</h3>
+          <p>Problems solved</p>
         </div>
 
         <div className="overview-card">
-          <h3>Current Goal</h3>
-          <p>{user.currentGoal || "No goal added yet"}</p>
+          <span>Goal</span>
+          <h3>{user.currentGoal || "No goal added"}</h3>
+          <p>Current focus</p>
         </div>
 
         <div className="overview-card">
-          <h3>Active Roadmaps</h3>
-          <p>Coming Soon</p>
+          <span>Roadmaps</span>
+          <h3>Coming Soon</h3>
+          <p>Active plans</p>
         </div>
       </div>
 
-      <section className="suggested-section">
-        <h2>Suggested Roadmaps</h2>
+      <section className="dashboard-section">
+        <div className="section-title">
+          <h2>Suggested Roadmaps</h2>
+          <p>Choose a path and start preparing with structure.</p>
+        </div>
 
-        <div className="overview-grid">
-          <div className="overview-card">
-            <h3>DSA</h3>
-            <p>Build problem-solving skills</p>
+        <div className="roadmap-grid">
+          <div className="roadmap-card">
+            <span>01</span>
+            <h3>Placement Foundation</h3>
+            <p>A complete starting roadmap for coding, aptitude, and basics.</p>
           </div>
 
-          <div className="overview-card">
-            <h3>Web Development</h3>
-            <p>Frontend + Backend path</p>
+          <div className="roadmap-card">
+            <span>02</span>
+            <h3>Full Stack Development</h3>
+            <p>Learn frontend, backend, APIs, databases, and deployment.</p>
           </div>
 
-          <div className="overview-card">
-            <h3>Machine Learning</h3>
-            <p>AI and data foundations</p>
+          <div className="roadmap-card">
+            <span>03</span>
+            <h3>Interview Preparation</h3>
+            <p>Prepare for HR, technical rounds, projects, and communication.</p>
           </div>
         </div>
       </section>

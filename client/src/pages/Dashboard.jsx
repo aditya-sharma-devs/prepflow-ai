@@ -77,7 +77,8 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.put(
-        `${API_URL}/api/auth/profile`,
+        `${API_URL}/api/auth/profile`,  //This is for real backend deployed
+        // `http://localhost:5000/api/auth/profile`, //this is for local host
         profileData,
         {
           headers: {
