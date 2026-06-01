@@ -1,5 +1,14 @@
 # 🚀 PrepFlow AI
 
+
+## 🌐 Live Demo
+
+Frontend: https://your-vercel-link.vercel.app
+
+Backend API: https://your-backend-link
+
+---
+
 ![PrepFlow Preview](./screenshots/landing-page.png)
 
 PrepFlow AI is a placement preparation platform designed to help students organize, track, and manage their learning journey from a single dashboard.
@@ -102,7 +111,7 @@ PrepFlow-AI
 ### Clone Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/prepflow-ai.git
+git clone https://github.com/aditya-sharma-devs/prepflow-ai.git
 ```
 
 ### Frontend Setup
