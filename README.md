@@ -3,9 +3,9 @@
 
 ## 🌐 Live Demo
 
-Frontend: https://your-vercel-link.vercel.app
+Frontend: [https://your-vercel-link.vercel.app](https://prepflow-ai-kappa.vercel.app/)
 
-Backend API: https://your-backend-link
+Backend API: [https://your-backend-link](https://prepflow-backend-szxk.onrender.com)
 
 ---
 
