@@ -10,7 +10,8 @@ import { Routes, Route } from "react-router-dom";
 import OverviewPage from "../components/dashboard/OverviewPage";
 import RoadmapsPage from "../components/dashboard/RoadmapsPage";
 import ProgressPage from "../components/dashboard/ProgressPage";
-import NotesPage from "../components/dashboard/NotesPage";
+import QuizzesPage from "../components/dashboard/QuizzesPage";
+import ResourcesPage from "../components/dashboard/ResourcesPage";
 import ProfilePage from "../components/dashboard/ProfilePage";
 import SettingsPage from "../components/dashboard/SettingsPage";
 
@@ -32,7 +33,7 @@ function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await axios.get(
-        `${API_URL}/api/auth/profile`,
+        `${API_URL}/api/auth/profile`, // ${API_URL}  http://localhost:5000
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,7 +59,7 @@ function Dashboard() {
   }
 
   useEffect(() => {
-    fetchProfile();
+    fetchProfile()
   }, []);
 
   function handleProfileChange(event) {
@@ -120,7 +121,9 @@ function Dashboard() {
 
             <Route path="progress" element={<ProgressPage />} />
 
-            <Route path="notes" element={<NotesPage />} />
+            <Route path="quizzes" element={<QuizzesPage />} />
+
+            <Route path="resources" element={<ResourcesPage />} />
 
             <Route path="profile" element={<ProfilePage />} />
 

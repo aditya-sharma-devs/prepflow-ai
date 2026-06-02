@@ -26,7 +26,7 @@ function Signup() {
 
     try {
       const response = await axios.post(
-        `${API_URL}/api/auth/signup`,
+        `${API_URL}/api/auth/signup`, //${API_URL}  http://localhost:5000
         formData,
       );
       console.log(response.data);

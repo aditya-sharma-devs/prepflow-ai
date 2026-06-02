@@ -1,0 +1,83 @@
+.progress-page {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+}
+
+.page-header p {
+  color: var(--text-muted);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.stat-card h3 {
+  color: var(--primary);
+  margin-bottom: 1rem;
+}
+
+.stat-card h2 {
+  font-size: 2rem;
+  color: var(--text-main);
+}
+
+.progress-section,
+.activity-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.roadmap-item {
+  margin-top: 1.5rem;
+}
+
+.roadmap-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.progress-bar {
+  height: 10px;
+  background: var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 999px;
+}
+
+.activity-section ul {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.activity-section li {
+  margin-bottom: 0.75rem;
+  color: var(--text-muted);
+}

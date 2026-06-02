@@ -12,7 +12,8 @@ function DashboardSidebar() {
         <Link to="/dashboard">Overview</Link>
         <Link to="/dashboard/roadmaps">Roadmaps</Link>
         <Link to="/dashboard/progress">Progress</Link>
-        <Link to="/dashboard/notes">Notes</Link>
+        <Link to="/dashboard/quizzes">Quizzes</Link>
+        <Link to="/dashboard/resources">Resources</Link>
         <Link to="/dashboard/profile">Profile</Link>
         <Link to="/dashboard/settings">Settings</Link>
       </nav>

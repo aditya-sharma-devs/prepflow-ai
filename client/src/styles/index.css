@@ -1,6 +1,10 @@
 @import "./global.css";
-@import "./navbar.css";
 @import "./home.css";
 @import "./auth.css";
 @import "./dashboard.css";
-@import "./roadmaps.css"
+@import "./roadmaps.css";
+@import "./progress.css";
+@import "./quizzes.css";
+@import "./resources.css";
+@import "./profile.css";
+@import "./settings.css";
