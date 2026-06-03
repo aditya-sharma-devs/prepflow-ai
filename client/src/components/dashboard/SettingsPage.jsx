@@ -34,7 +34,6 @@ function SettingsPage() {
         setEmailNotifications(res.data.settings?.emailNotifications ?? true);
         const savedDarkMode = res.data.settings?.darkMode ?? false;
         setDarkMode(savedDarkMode);
-        document.body.classList.toggle("dark-mode", savedDarkMode);
       } catch (error) {
         alert(error.response?.data?.message || "Failed to load settings");
       }
