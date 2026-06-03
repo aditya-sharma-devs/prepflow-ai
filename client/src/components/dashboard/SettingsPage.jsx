@@ -76,6 +76,7 @@ function SettingsPage() {
         },
       );
 
+      document.body.classList.toggle("dark-mode", darkMode);
       alert(res.data.message);
     } catch (error) {
       alert(error.response?.data?.message || "Preferences update failed");
@@ -227,10 +228,6 @@ function SettingsPage() {
                   checked={darkMode}
                   onChange={(e) => {
                     setDarkMode(e.target.checked);
-                    document.body.classList.toggle(
-                      "dark-mode",
-                      e.target.checked,
-                    );
                   }}
                 />
                 <span className="slider"></span>
