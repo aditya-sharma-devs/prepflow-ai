@@ -35,7 +35,7 @@ function RoadmapsPage() {
       const token = localStorage.getItem("token");
 
       await axios.post(
-        // "http://localhost:5000/api/roadmaps/generated",
+        // "http://localhost:5000/api/roadmaps/generate",
         `${API_URL}/api/roadmaps/generated`,
         { topic },
         {
@@ -61,7 +61,7 @@ function RoadmapsPage() {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.delete(`${API_URL}/api/roadmaps/${id}`, { //  http://localhost:5000
+      await axios.delete(`${API_URL}/api/roadmaps/${id}`, { //  http://localhost:5000  ${API_URL}
         headers: {
           Authorization: `Bearer ${token}`,
         },

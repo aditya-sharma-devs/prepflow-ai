@@ -1,0 +1,38 @@
+body.dark-mode {
+  --bg-main: #0f172a;
+  --bg-dark: #020617;
+  --bg-card: #111827;
+  --bg-soft: #1e293b;
+
+  --text-main: #f8fafc;
+  --text-muted: #cbd5e1;
+  --text-light: #f8fafc;
+
+  --primary: #818cf8;
+  --primary-dark: #6366f1;
+  --accent: #22d3ee;
+  --success: #22c55e;
+
+  --danger: #ef4444;
+  --danger-dark: #dc2626;
+
+  --border: #334155;
+  --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: transparent;
+  color: var(--text-main);
+
+  border: 1px solid var(--border);
+
+  backdrop-filter: blur(12px);
+}
+
+body.dark-mode input::placeholder,
+body.dark-mode textarea::placeholder {
+  color: var(--text-muted);
+}

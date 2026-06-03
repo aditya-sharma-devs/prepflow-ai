@@ -1,23 +1,58 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function DashboardSidebar() {
-  return (
-    <aside className="dashboard-sidebar">
-      <div className="sidebar-brand">
-        <h2>PrepFlow</h2>
-        <p>Placement Hub</p>
-      </div>
+  const [open, setOpen] = useState(false);
 
-      <nav className="sidebar-links">
-        <Link to="/dashboard">Overview</Link>
-        <Link to="/dashboard/roadmaps">Roadmaps</Link>
-        <Link to="/dashboard/progress">Progress</Link>
-        <Link to="/dashboard/quizzes">Quizzes</Link>
-        <Link to="/dashboard/resources">Resources</Link>
-        <Link to="/dashboard/profile">Profile</Link>
-        <Link to="/dashboard/settings">Settings</Link>
-      </nav>
-    </aside>
+  return (
+    <>
+      {open && (
+        <div className="sidebar-overlay" onClick={() => setOpen(false)}></div>
+      )}
+
+      <aside className={`dashboard-sidebar ${open ? "sidebar-open" : ""}`}>
+        <div className="sidebar-menu">
+          <div className="sidebar-brand">
+            <h2>PrepFlow AI</h2>
+            <p>Placement Hub</p>
+          </div>
+
+          <button className="sidebar-menu-btn" onClick={() => setOpen(!open)}>
+            {open ? "✕" : "☰"}
+          </button>
+        </div>
+
+        <div className="sidebar-nav">
+          <div className="drawer-brand">
+            <h2>PrepFlow AI</h2>
+            <p>Placement Hub</p>
+          </div>
+          <nav className="sidebar-links">
+            <Link to="/dashboard" onClick={() => setOpen(false)}>
+              Overview
+            </Link>
+            <Link to="/dashboard/roadmaps" onClick={() => setOpen(false)}>
+              Roadmaps
+            </Link>
+            <Link to="/dashboard/progress" onClick={() => setOpen(false)}>
+              Progress
+            </Link>
+            <Link to="/dashboard/quizzes" onClick={() => setOpen(false)}>
+              Quizzes
+            </Link>
+            <Link to="/dashboard/resources" onClick={() => setOpen(false)}>
+              Resources
+            </Link>
+            <Link to="/dashboard/profile" onClick={() => setOpen(false)}>
+              Profile
+            </Link>
+            <Link to="/dashboard/settings" onClick={() => setOpen(false)}>
+              Settings
+            </Link>
+          </nav>
+        </div>
+      </aside>
+    </>
   );
 }
 

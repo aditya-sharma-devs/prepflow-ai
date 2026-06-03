@@ -1,4 +1,5 @@
 @import "./global.css";
+@import "./darkMode.css";
 @import "./home.css";
 @import "./auth.css";
 @import "./dashboard.css";

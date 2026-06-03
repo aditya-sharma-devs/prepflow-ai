@@ -36,8 +36,18 @@ const roadmapSchema = new mongoose.Schema(
       type: String,
       default: "fake-ai",
     },
+
+    topicKey: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true },
+);
+
+roadmapSchema.index(
+  { user: 1, topicKey: 1 },
+  { unique: true }
 );
 
 const Roadmap = mongoose.model("Roadmap", roadmapSchema);
